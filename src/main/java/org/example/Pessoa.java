@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Pessoa {
 
@@ -8,10 +9,8 @@ public class Pessoa {
     private String sobrenome;
     private LocalDate dataDeNascimento;
 
-    public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento) {
+    public Pessoa(String nome) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.dataDeNascimento = dataDeNascimento;
     }
 
     public String getNome() {
@@ -36,5 +35,9 @@ public class Pessoa {
 
     public void setDataDeNascimento(LocalDate dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
+    }
+
+    public String saudacao() {
+        return String.format("Olá. Meu nome é %s %s e tenho %d anos.", nome, sobrenome, dataDeNascimento.until(LocalDate.now(), ChronoUnit.YEARS));
     }
 }

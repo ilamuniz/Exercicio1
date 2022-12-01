@@ -14,14 +14,13 @@ public class App {
         Scanner leitor = new Scanner(System.in);
 
         System.out.print("Digite seu primeiro nome: ");
-        String nome = leitor.next();
+        Pessoa pessoa = new Pessoa(leitor.next());
         System.out.print("Digite seu sobrenome: ");
-        String sobrenome = leitor.next();
+        pessoa.setSobrenome(leitor.next());
         System.out.print("Digite sua data de nascimento: ");
-        LocalDate dataDeNascimento = LocalDate.parse(leitor.next(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        pessoa.setDataDeNascimento(LocalDate.parse(leitor.next(),DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
-        Pessoa pessoa = new Pessoa(nome, sobrenome, dataDeNascimento);
-        System.out.printf("Olá. Meu nome é %s %s e tenho %d anos.", nome, sobrenome, dataDeNascimento.until(LocalDate.now(), ChronoUnit.YEARS));
+        System.out.printf(pessoa.saudacao());
 
     }
 }
