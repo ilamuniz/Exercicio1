@@ -1,4 +1,6 @@
-package org.example;
+package org.example.entidades;
+
+import org.example.entidades.Pessoa;
 
 public class Carro {
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.entidades;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -11,7 +11,7 @@ public class Pessoa {
     private String cnh;
     private LocalDate dataDeNascimento;
 
-    Carro[] carros;
+    private Carro[] carros;
 
     public Pessoa(String nome, String sobrenome, String cnh) {
         this.nome = nome;
@@ -24,8 +24,7 @@ public class Pessoa {
     }
 
     public String setNome(String nome) {
-        this.nome = nome;
-        return nome;
+        return this.nome = nome;
     }
 
     public String getSobrenome() {
@@ -53,6 +52,6 @@ public class Pessoa {
     }
 
     public String saudacao() {
-        return String.format("Olá. Meu nome é %s %s e tenho %d anos.", nome, sobrenome, dataDeNascimento.until(LocalDate.now(), ChronoUnit.YEARS));
+        return String.format("Olá. Meu nome é %s %s, tenho %d anos e meu cnh é %s.", nome, sobrenome, dataDeNascimento.until(LocalDate.now(), ChronoUnit.YEARS), cnh);
     }
 }
